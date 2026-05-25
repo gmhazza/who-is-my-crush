@@ -31,15 +31,16 @@ function showStep(stepId) {
     }
   });
 }
-
+const audio = document.getElementById('bgMusic');
 // ===== Name Check =====
 document.getElementById('checkBtn').addEventListener('click', () => {
   const name = document.getElementById('nameInput').value.trim().toLowerCase();
   const wrongMsg = document.getElementById('wrongMsg');
 
   if (name.includes('irsa')) {
-    //const audio = document.getElementtById("bgMusic");
-    //audio.play();
+    audio.play().catch(() => {
+      console.log('ErrorWhilePlaying');
+  }
     wrongMsg.classList.add('hidden');
     setTimeout(() => showStep('step-ask'), 200);
   } else {
@@ -105,7 +106,6 @@ document.getElementById('noBtn2').addEventListener('click', () => {
 });
 
 // ===== Music Player =====
-const audio = document.getElementById('bgMusic');
 const playBtn = document.getElementById('playBtn');
 const playIcon = document.getElementById('playIcon');
 const playLabel = document.getElementById('playLabel');
