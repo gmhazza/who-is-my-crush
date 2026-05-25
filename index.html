@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Just for You</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Floating hearts background -->
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <!-- Audio -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <!-- Replace the src above with a local path to death bed mp3, e.g: src="deathbed.mp3" -->
+  </audio>
+
+  <!-- Main Container -->
+  <div class="min-h-screen flex items-center justify-center px-4 relative z-10">
+
+    <!-- Step 1: Name Input -->
+    <div id="step-name" class="card text-center max-w-md w-full">
+      <div class="petal-icon mb-6">🌸</div>
+      <h1 class="display-title mb-2">Hello, stranger</h1>
+      <p class="subtitle mb-8">This page was made for someone special.<br/>Are you that person?</p>
+      <input
+        type="text"
+        id="nameInput"
+        placeholder="Enter your name..."
+        class="name-input w-full mb-4"
+        autocomplete="off"
+      />
+      <button id="checkBtn" class="btn-main w-full">
+        Find out ✨
+      </button>
+      <p id="wrongMsg" class="wrong-msg mt-4 hidden">
+        Hmm... this wasn't made for you 👀<br/>
+        <span class="text-sm opacity-70">But whoever it was made for is very lucky.</span>
+      </p>
+    </div>
+
+    <!-- Step 2: Can I tell you something? -->
+    <div id="step-ask" class="card text-center max-w-md w-full hidden">
+      <div class="petal-icon mb-6">💌</div>
+      <h2 class="display-title mb-4">Hey, Irsa 🌸</h2>
+      <p class="subtitle mb-8">I want to tell you something...<br/>Can I?</p>
+      <div class="flex gap-4 justify-center">
+        <button id="yesBtn1" class="btn-main flex-1">Yes 🥺</button>
+        <button id="noBtn1" class="btn-secondary flex-1">Maybe later</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Are you sure? -->
+    <div id="step-sure" class="card text-center max-w-md w-full hidden">
+      <div class="petal-icon mb-6">🥹</div>
+      <h2 class="display-title mb-4">Are you sure? 😅</h2>
+      <p class="subtitle mb-8">Because once I say it...<br/>there's no going back.</p>
+      <div class="flex gap-4 justify-center">
+        <button id="yesBtn2" class="btn-main flex-1">I'm sure 💕</button>
+        <button id="noBtn2" class="btn-secondary flex-1">Umm... okay</button>
+      </div>
+    </div>
+
+    <!-- Step 4: The Reveal -->
+    <div id="step-reveal" class="card text-center max-w-lg w-full hidden">
+      <div class="petal-icon mb-4 text-5xl">❤️</div>
+      <h2 class="love-title mb-6">I Love You</h2>
+      <div class="divider mb-6"></div>
+      <p class="personal-note mb-8">
+        I always want to tell you that but I never had enough courage to confess it in front of you.
+        Everytime you appear in front of me, my heart rate spikes and I forget all the other things.
+      </p>
+      <div class="music-player">
+        <button id="playBtn" class="play-btn">
+          <span id="playIcon">▶</span>
+          <span id="playLabel">Play our song</span>
+        </button>
+        <p class="song-name mt-2">Powfu — Death Bed ☁️</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confettiCanvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

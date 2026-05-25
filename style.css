@@ -1,0 +1,302 @@
+/* ===== CSS Variables ===== */
+:root {
+  --pink-1: #FFD3D6;
+  --pink-2: #FFE5E7;
+  --pink-3: #F9DCC0;
+  --pink-4: #FFC6CA;
+  --pink-5: #F9E6E4;
+  --pink-6: #FFB0B5;
+  --text-dark: #5c2d35;
+  --text-mid: #8b4a54;
+  --text-light: #b07880;
+}
+
+/* ===== Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lora', serif;
+  background: linear-gradient(135deg, var(--pink-5) 0%, var(--pink-2) 40%, var(--pink-1) 70%, var(--pink-3) 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctext y='16' font-size='16'%3E🌸%3C/text%3E%3C/svg%3E"), auto;
+}
+
+/* ===== Floating Hearts Background ===== */
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -60px;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.3; }
+  100% {
+    transform: translateY(-110vh) rotate(25deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* ===== Card ===== */
+.card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 176, 181, 0.4);
+  border-radius: 28px;
+  padding: 3rem 2.5rem;
+  box-shadow:
+    0 8px 40px rgba(255, 150, 160, 0.18),
+    0 2px 12px rgba(255, 180, 190, 0.12),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+  animation: cardIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== Typography ===== */
+.display-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--text-dark);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.love-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.05); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.03); }
+  56% { transform: scale(1); }
+}
+
+.personal-note {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.85;
+  font-style: italic;
+  padding: 1.2rem 1.5rem;
+  background: rgba(255, 211, 214, 0.25);
+  border-left: 3px solid var(--pink-6);
+  border-radius: 0 12px 12px 0;
+  text-align: left;
+}
+
+/* ===== Petal Icon ===== */
+.petal-icon {
+  font-size: 3rem;
+  display: block;
+  animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+/* ===== Input ===== */
+.name-input {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid rgba(255, 176, 181, 0.5);
+  border-radius: 50px;
+  padding: 0.85rem 1.5rem;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.name-input::placeholder {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.name-input:focus {
+  border-color: var(--pink-6);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 3px rgba(255, 176, 181, 0.25);
+}
+
+/* ===== Buttons ===== */
+.btn-main {
+  background: linear-gradient(135deg, var(--pink-6), var(--pink-4));
+  color: var(--text-dark);
+  border: none;
+  border-radius: 50px;
+  padding: 0.85rem 2rem;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 15px rgba(255, 150, 160, 0.35);
+}
+
+.btn-main:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(255, 150, 160, 0.45);
+}
+
+.btn-main:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--text-mid);
+  border: 1.5px solid rgba(255, 176, 181, 0.4);
+  border-radius: 50px;
+  padding: 0.85rem 2rem;
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-2px);
+}
+
+/* ===== Wrong message ===== */
+.wrong-msg {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  color: var(--text-mid);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  animation: fadeIn 0.5s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Divider ===== */
+.divider {
+  width: 60px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--pink-6), transparent);
+  margin: 0 auto;
+}
+
+/* ===== Music Player ===== */
+.music-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.play-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--pink-4), var(--pink-6));
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 1.8rem;
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 15px rgba(255, 150, 160, 0.3);
+}
+
+.play-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 150, 160, 0.45);
+}
+
+.song-name {
+  font-family: 'Lora', serif;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--text-light);
+}
+
+/* ===== Step transitions ===== */
+.hidden {
+  display: none !important;
+}
+
+.step-enter {
+  animation: cardIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ===== Confetti canvas ===== */
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .card {
+    padding: 2rem 1.5rem;
+  }
+  .display-title {
+    font-size: 2rem;
+  }
+  .love-title {
+    font-size: 2.8rem;
+  }
+}
