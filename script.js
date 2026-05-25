@@ -38,6 +38,8 @@ document.getElementById('checkBtn').addEventListener('click', () => {
   const wrongMsg = document.getElementById('wrongMsg');
 
   if (name.includes('irsa')) {
+    const audio = document.getElemntById("bgMusic");
+    audio.play();
     wrongMsg.classList.add('hidden');
     setTimeout(() => showStep('step-ask'), 200);
   } else {
