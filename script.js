@@ -37,7 +37,7 @@ document.getElementById('checkBtn').addEventListener('click', () => {
   const name = document.getElementById('nameInput').value.trim().toLowerCase();
   const wrongMsg = document.getElementById('wrongMsg');
 
-  if (name.includes('vi wang')) {
+  if (name.includes('irsa')) {
     wrongMsg.classList.add('hidden');
     setTimeout(() => showStep('step-ask'), 200);
   } else {
